@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta name="google-site-verification" content="zDZ_HB9ARSJg3fYqwF63M1MhWHagV4N33_UpG2bXZKU" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="format-detection" content="telephone=no">
+  <title>코드 줄이기</title>
+  <style>
+    a {
+      text-decoration: none;
+      color: #464855;
+    }
+
+    .wei400 {
+      font-weight: 400
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <div id="menu">
+      <a class="aTag" id="aHome">Home</a>
+      <a class="aTag" id="aSeoul">Seoul</a>
+      <a class="aTag" id="aTokyo">Tokyo</a>
+      <a class="aTag" id="aParis">Paris</a>
+    </div>
+
+    <img id="photo" src="images/desk.png">
+
+    <div>
+      <p>안녕01</p>
+      <p>안녕02</p>
+      <p>안녕03</p>
+      <p>안녕04</p>
+    </div>
+  </div>
+  <script src="jquery-3.3.1.min.js"></script>
+
+  <script>
+    $('#photo').on('mouseenter', mouseEnterPhoto);
+    $('#photo').on('mouseleave', mouseLeavePhoto);
+
+    function mouseEnterPhoto() {
+      $('#photo').css('box-shadow', '5px 10px');
+    }
+
+    function mouseLeavePhoto() {
+      $('#photo').css('box-shadow', 'none')
+    }
+
+    //클릭이벤트
+    $('#menu a').on('click', selectMenu);
+
+    function selectMenu(e) {
+      console.log(event.currentTarget.id);
+    }
+
+    $(document).on('keydown', processKeyEvent);
+
+    // 키보드 이벤트 핸들링
+    function processKeyEvent(event) {
+      if (event['key'] === '1') {
+        clickHome();
+      } else if (event['key'] === '2') {
+        clickSeoul();
+      } else if (event['key'] === '3') {
+        clickTokyo();
+      } else if (event['key'] === '4') {
+        clickParis();
+      }
+    }
+  </script>
+</body>
+
+</html>

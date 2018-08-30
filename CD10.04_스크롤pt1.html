@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta name="google-site-verification" content="zDZ_HB9ARSJg3fYqwF63M1MhWHagV4N33_UpG2bXZKU" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="format-detection" content="telephone=no">
+  <title>Furniture Shop</title>
+  <style>
+    body {
+      min-height: 2000px;
+    }
+    .top {
+      width: 100%;
+      height: 200px;
+      background-color: #66A1F4;
+      font-size: 40px;
+      color: #fefefe;
+      text-align: center;
+      line-height: 200px;
+    }
+    .go-to-top {
+      width: 100px;
+      height: 50px;
+      background-color: #3469D4;
+      color: #fefefe;
+      font-size: 14px;
+      text-align: center;
+      line-height: 50px;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      border: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top">Fade away</div>
+  <button class="go-to-top">Go To Top</button>
+
+  <script src="jquery-3.3.1.min.js"></script>
+  <script>
+    $(window).on('scroll', function() {
+      console.log($(window).scrollTop());
+      // 1 - 0 / 200 = 1 (스크롤바 맨 위에 있을 때)
+      // 1 - 100 / 200 = 0.5 (반쯤 왔을 때)
+      $('.top').css('opacity', 1 - $(window).scrollTop() / $('.top').height())
+      $('.go-to-top').on('click', function() {
+        $('html, body').animate({scrollTop: 0}, 500);
+      })
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta name="google-site-verification" content="zDZ_HB9ARSJg3fYqwF63M1MhWHagV4N33_UpG2bXZKU" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name = "format-detection" content = "telephone=no">
+    <title>if문</title>
+
+</head>
+
+<body>
+
+</body>
+
+<script>
+  var inputNumber = window.prompt('한 자리 숫자를 적어주세요.');
+
+  console.log(inputNumber) //string의 형태
+
+  if (inputNumber === '7') {
+    alert('Lucky!');
+  } else if (inputNumber === '0') {
+    alert('Zero');
+  } else if (inputNumber === '1') {
+    alert('One');
+  } else {
+    alert('Unlucky!');
+  }
+
+  var num;
+
+  if(num % 2 === 0 && num % 3 === 0) {
+    console.log(num + '는 6의 배수입니다');
+  } else {
+    console.log(num + '6의 배수가 아닙니다.');
+  }
+
+
+  // 연습문제
+  if (myAge === yourAge) {
+    return '친구'
+  } else if (myAge > yourAge) {
+    if (yourGender === 'male') {
+      return '남동생'
+    } else {
+      return '여동생'
+    }
+  } else if (myGender === 'male') {
+    if (yourGender === 'male') {
+      return '형'
+    } else {
+      return '누나'
+    }
+  } else {
+    if (yourGender === 'female') {
+      return '언니'
+    } else {
+      return '오빠'
+    }
+  }
+</script>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta name="google-site-verification" content="zDZ_HB9ARSJg3fYqwF63M1MhWHagV4N33_UpG2bXZKU" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="format-detection" content="telephone=no">
+  <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+  <title>데이터 분석하기</title>
+</head>
+
+<body>
+
+
+  <script src="jquery-3.3.1.min.js"></script>
+
+  <script>
+    let wannaone = [
+      '19961210강다니엘',
+      '19990529박지훈',
+      '20010129이대휘',
+      '19960527김재환',
+      '19950825옹성우',
+      '19991102박우진',
+      '19971201정채연',
+      '20010923라이관린',
+      '19910308윤지성',
+      '19950809황민현',
+      '20000510배진영',
+      '19940322하성운'
+    ];
+
+    function printbirthday(arr) {
+      console.log("미성년자 명단:");
+      let today = new Date();
+      let year = today.getFullYear();
+
+      for (var i = 0; i < arr.length; i++) {
+        let array = Number(arr[i].substring(0, 4));
+
+        if(array > 1998) {
+          console.log(arr[i])
+        }
+      }
+    }
+
+    printbirthday(wannaone);
+  </script>
+</body>
+
+</html>

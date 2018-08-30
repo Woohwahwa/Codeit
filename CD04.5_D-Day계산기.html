@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta name="google-site-verification" content="zDZ_HB9ARSJg3fYqwF63M1MhWHagV4N33_UpG2bXZKU" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="format-detection" content="telephone=no">
+  <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+  <title>D-DAY 계산기</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-width: 992px;
+      font-family: "Helvetica";
+    }
+
+    /* navigation bar */
+
+    .navbar {
+      height: 66px;
+      background-color: white;
+      text-align: center;
+      line-height: 66px;
+    }
+
+    #logo {
+      vertical-align: middle;
+    }
+
+    /* main */
+
+    .main {
+      background-image: linear-gradient(135deg, #B0A8FF 0%, #786FFF 100%);
+      padding: 80px 0;
+      min-height: calc(100vh - 66px);
+    }
+
+    .container {
+      background: #FFFFFF;
+      box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.10);
+      border-radius: 10px;
+      width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 32px 66px;
+    }
+
+    .container h2 {
+      font-size: 24px;
+      color: #4A4A4A;
+      margin: 0;
+      margin-bottom: 28px;
+    }
+
+    .container h2 span {
+      font-weight: 700;
+      color: #786FFF;
+    }
+
+    .container .img-row {
+      margin-bottom: 40px;
+    }
+
+    .container .img-row img {
+      vertical-align: middle;
+      margin: 0 6px;
+    }
+
+    .date-row {
+      margin-bottom: 40px;
+    }
+
+    label[for=start] {
+      font-size: 16px;
+      color: #4A4A4A;
+      line-height: 34.5px;
+      vertical-align: middle;
+      margin-right: 13px;
+    }
+
+    input[type=date] {
+      border: 1px solid #786FFF;
+      border-radius: 5px;
+      padding: 8px 14px;
+      vertical-align: middle;
+      font-size: 16px;
+    }
+
+    #calculate {
+      width: 100%;
+      background: #786FFF;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.50);
+      border-radius: 5px;
+      color: white;
+      font-size: 18px;
+      padding: 14px 0;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="navbar">
+    <img id="logo" src="images/CD04.5/logo.png" width="157">
+  </div>
+
+  <div class="main">
+    <div class="container">
+      <!-- 만난지 며칠? -->
+      <h2>만난지 <span id="day-count">00</span>일째</h2>
+
+      <div class="img-row">
+        <img src="images/CD04.5/female.png" width="148">
+        <img src="images/CD04.5/dot.png" width="8">
+        <img src="images/CD04.5/dot.png" width="8">
+        <img src="images/CD04.5/heart.png" width="16">
+        <img src="images/CD04.5/dot.png" width="8">
+        <img src="images/CD04.5/dot.png" width="8">
+        <img src="images/CD04.5/male.png" width="148">
+      </div>
+
+      <!-- 만나기 시작한 날짜 -->
+      <div class="date-row">
+        <label for="start">시작일</label>
+        <input type="date" name="start" id="start">
+      </div>
+
+      <!-- 며칠됐는지 계산하기! -->
+      <button id="calculate">결과 보기</button>
+    </div>
+  </div>
+
+
+  <script src="jquery-3.3.1.min.js"></script>
+  <script>
+  $(calculate).click(function(e) {
+    let firstDate = document.getElementById('start');
+    let today = new Date();
+    let d = 0;
+    d = new Date(firstDate.value);
+    console.log(today);
+    console.log(d);
+
+    let interval = today.getTime() - d.getTime();
+    interval = Math.floor(interval / (1000 * 60 * 60 * 24));
+    if (firstDate.value != "") {
+      $('#day-count').text(interval);
+    } else {
+      console.log('날짜를 다시 입력해주세요')
+    }
+  })
+
+  </script>
+</body>
+
+</html>

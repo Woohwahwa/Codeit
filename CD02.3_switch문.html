@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta name="google-site-verification" content="zDZ_HB9ARSJg3fYqwF63M1MhWHagV4N33_UpG2bXZKU" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name = "format-detection" content = "telephone=no">
+    <title>switch문</title>
+
+</head>
+
+<body>
+
+</body>
+
+<script>
+
+var inputNumber = window.prompt('한 자리 숫자를 적어주세요.');
+
+switch (inputNumber) {
+  case '0':
+    alert('Zero!');
+    break;
+  case '1':
+    alert('One!');
+    break;
+  case '7':
+    alert('Lucky!');
+    break;
+  default:
+    alert('Unlucky!');
+    break;
+}
+
+//if문이 좋을 때
+var score = 85;
+
+if (score > 70) {
+  alert('잘 하셨습니다!');
+}
+
+//switch문이 좋을 때
+
+var courseName = 'B';
+
+switch (courseName) {
+  case 'C':
+    console.log('게살스프 칠리새우');
+  case 'B':
+    console.log('유산슬');
+  case 'A':
+    console.log('짜장면 짬뽕 탕수육 양장피 팔보채');
+    break;
+  default:
+    console.log('주문이 잘못되었습니다.')
+    break;
+}
+
+</script>
+
+</html>

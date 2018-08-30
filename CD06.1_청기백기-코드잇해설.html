@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>청기 백기1 - 코드잇 해설</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/CD06.1.css">
+  <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="flags">
+      <img class="flag blue dot" src="images/CD06.1/blue_dot.png" width="100">
+      <img class="flag red" src="images/CD06.1/red_solid.png" width="100">
+      <img class="flag blue" src="images/CD06.1/blue_solid.png" width="100">
+      <img class="flag blue dot" src="images/CD06.1/blue_dot.png" width="100">
+      <img class="flag white dot" src="images/CD06.1/white_dot.png" width="100">
+      <img class="flag blue" src="images/CD06.1/blue_solid.png" width="100">
+    </div>
+
+    <div class="buttons">
+      <button id="btn1">청기 내려</button>
+      <button id="btn2">청기 내리지 말고 백기 내려</button>
+      <button id="btn3">점선 청기 내려</button>
+    </div>
+  </div>
+
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script>
+  $('#btn1').on('click', blueDown);
+  $('#btn2').on('click', whiteDown);
+  $('#btn3').on('click', blueDotDown);
+
+  function blueDown() {
+    $('.blue').addClass('down');
+  }
+
+  function whiteDown() {
+    $('.white').addClass('down');
+  }
+
+  function blueDotDown() {
+    $('.blue.dot').addClass('down')
+  }
+
+  </script>
+</body>
+</html>

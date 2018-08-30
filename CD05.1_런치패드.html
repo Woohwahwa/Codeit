@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta name="google-site-verification" content="zDZ_HB9ARSJg3fYqwF63M1MhWHagV4N33_UpG2bXZKU" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="format-detection" content="telephone=no">
+  <title>런치패드</title>
+  <style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Helvetica";
+    background-color: #090910;
+  }
+
+  .pad {
+    width: 700px;
+    height: 570px;
+    margin: 100px auto;
+    position: relative;
+  }
+
+  .pad #play-btn {
+    position: absolute;
+    top: 70px;
+    right: 50px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .pad #stop-btn {
+    position: absolute;
+    top: 140px;
+    right: 50px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .cell-container {
+    width: 360px;
+    height: 360px;
+    left: 105px;
+    top: 100px;
+    position: absolute;
+  }
+
+  .cell {
+    width: 100px;
+    height: 100px;
+    color: #4A4A4A;
+    font-size: 16px;
+    float: left;
+    margin: 10px;
+    text-align: center;
+    border-radius: 4px;
+  }
+
+  .cell .key {
+    border: 2px solid #4A4A4A;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: 8px auto;
+    line-height: 40px;
+    font-weight: 500;
+  }
+
+  .cell .instrument {
+    width: 80px;
+    white-space: nowrap;
+    margin: 0 auto;
+    font-weight: 500;
+  }
+
+  .cell.green {
+    background-color: #87E682;
+  }
+
+  .cell.blue {
+    background-color: #2DBAF2;
+  }
+
+  .cell.red {
+    background-color: #FB718C;
+  }
+
+  .cell.green.playing {
+    background-color: rgba(135, 230, 130, 0.2);
+    color: #87E682;
+    border: 2px solid #87E682;
+  }
+
+  .cell.green.playing .key {
+    border: 2px solid #87E682;
+  }
+
+  .cell.blue.playing {
+    background-color: rgba(45, 186, 242, 0.2);
+    color: #2DBAF2;
+    border: 2px solid #2DBAF2;
+  }
+
+  .cell.blue.playing .key {
+    border: 2px solid #2DBAF2;
+  }
+
+  .cell.red.playing {
+    background-color: rgba(251, 113, 140, 0.2);
+    color: #FB718C;
+    border: 2px solid #FB718C;
+  }
+
+  .cell.red.playing .key {
+    border: 2px solid #FB718C;
+  }
+
+  </style>
+</head>
+
+  <body>
+    <div class="pad">
+      <img src="images/CD05.1/pad.png" width="700" height="570">
+      <button id="play-btn">
+        <img src="images/CD05.1/play.png" width="50" height="50">
+      </button>
+      <button id="stop-btn">
+        <img src="images/CD05.1/stop.png" width="50" height="50">
+      </button>
+
+      <div class="cell-container">
+        <div class="cell green" id="cell1">
+          <div class="key">1</div>
+          <div class="instrument">Kick</div>
+        </div>
+
+        <div class="cell blue" id="cell2">
+          <div class="key">2</div>
+          <div class="instrument">Closed<br>Hi-hat</div>
+        </div>
+
+        <div class="cell blue" id="cell3">
+          <div class="key">3</div>
+          <div class="instrument">Open<br>Hi-hat</div>
+        </div>
+
+        <div class="cell red" id="cell4">
+          <div class="key">4</div>
+          <div class="instrument">Clap</div>
+        </div>
+
+        <div class="cell red" id="cell5">
+          <div class="key">5</div>
+          <div class="instrument">Snap</div>
+        </div>
+
+        <div class="cell blue" id="cell6">
+          <div class="key">6</div>
+          <div class="instrument">Crash</div>
+        </div>
+
+        <div class="cell green" id="cell7">
+          <div class="key">7</div>
+          <div class="instrument">Tom 1</div>
+        </div>
+
+        <div class="cell green" id="cell8">
+          <div class="key">8</div>
+          <div class="instrument">Tom 2</div>
+        </div>
+
+        <div class="cell blue" id="cell9">
+          <div class="key">9</div>
+          <div class="instrument">Tambourine</div>
+        </div>
+      </div>
+    </div>
+
+    <audio src="sounds/CD05.1/loop.mp3"></audio>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    <script>
+
+      const audio = new Audio('sounds/CD05.1/loop.mp3');
+
+      $('#play-btn').on('click', function() {
+        audio.play();
+      });
+
+      $('#stop-btn').on('click', function() {
+        audio.pause();
+        audio.currentTime = 0;
+      });
+
+    </script>
+  </body>
+</html>

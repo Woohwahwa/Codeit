@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta name="google-site-verification" content="zDZ_HB9ARSJg3fYqwF63M1MhWHagV4N33_UpG2bXZKU" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="format-detection" content="telephone=no">
+  <title>while문</title>
+
+</head>
+
+<body>
+
+</body>
+
+<script>
+  var brands = ['NIKE', 'APPLE', 'Starbucks', 'Amazon', 'Disney', 'BMW']
+
+  var i = 0;
+
+  while (i < brands.length) {
+    console.log(brands[i]);
+    i++;
+  }
+
+
+  //연습문제
+
+  function factorial(num) {
+    var factorialValue = 1;
+    for (var i = 1; i <= num; i++) {
+      factorialValue *= i;
+    }
+
+    return factorialValue;
+  }
+
+  console.log(factorial(10));
+  console.log(factorial(5));
+  console.log(factorial(3));
+  console.log(factorial(0));
+
+
+  //배열 만들기 1 연습문제
+  function range(start, end, step) {
+    var arr = [];
+    var i = start;
+    if (i < end) {
+      for (i; i < end; i += step) {
+        arr.push(i);
+      }
+    } else if (i > end) {
+      for (i; i > end; i += step) {
+        arr.push(i);
+      }
+    }
+
+    return arr;
+  }
+  // 테스트 코드
+  console.log(range(1, 10, 1));
+  console.log(range(-1, 10, 3));
+  console.log(range(10, -10, -4));
+
+
+  //배열 만들기 2 연습문제
+  var arr1 = [[2, 1], [4, 3]];
+  var arr2 = [[3, 2, 1], [5, 4], [6]];
+  var arr3 = [[3], [4, 5], [6], [7], [8, 9, 10]];
+
+  function restoreArray(arr) {
+      var returnArr = [];
+
+      for (var i of arr) {
+        let key = i.reverse()
+        for (var j of key) {
+          returnArr.push(j)
+        }
+      }
+      return returnArr;
+  }
+
+  console.log(restoreArray(arr1));
+  console.log(restoreArray(arr2));
+  console.log(restoreArray(arr3));
+</script>
+
+</html>

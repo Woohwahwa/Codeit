@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta name="google-site-verification" content="zDZ_HB9ARSJg3fYqwF63M1MhWHagV4N33_UpG2bXZKU" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="format-detection" content="telephone=no">
+  <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+  <title>아이디 비밀번호 검사</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background-color: #1BBC9B;
+    }
+
+    .login-form {
+      width: 300px;
+      background-color: #eeeff1;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 50px;
+      border-radius: 5px;
+      padding: 20px;
+    }
+
+    .text-field {
+      font-size: 14px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    #submit-btn {
+      font-size: 14px;
+      background-color: #9B9B9B;
+      color: white;
+      width: 100%;
+      border-radius: 5px;
+      padding: 10px;
+      border: none;
+    }
+
+    #submit-btn:hover {
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.50);
+    }
+
+    .links {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .links a {
+      font-size: 12px;
+      color: #9b9b9b;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-form">
+    <form>
+      <input type="text" name="email" id="email-input" class="text-field" placeholder="아이디"><br>
+      <input type="password" name="password" id="password-input" class="text-field" placeholder="비밀번호"><br>
+      <input type="submit" value="로그인" id="submit-btn">
+    </form>
+
+    <div class="links">
+      <a href="#">비밀번호를 잊어버리셨나요?</a>
+    </div>
+
+
+    <script src="jquery-3.3.1.min.js"></script>
+
+    <script>
+      var coID = $('#email-input').val()
+      var coPS = $('#password-input').val()
+      var coSB = $('#submit-btn');
+
+      $('.text-field').on('input', function(e) {
+        if (($('#email-input').val()) == "" || ($('#password-input').val()) == "") {
+          coSB.css('background', '#9b9b9b')
+        } else {
+          coSB.css('background', '#1bbc9b')
+        }
+      });
+    </script>
+</body>
+
+</html>

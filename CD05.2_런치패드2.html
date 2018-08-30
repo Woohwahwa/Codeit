@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta name="google-site-verification" content="zDZ_HB9ARSJg3fYqwF63M1MhWHagV4N33_UpG2bXZKU" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="format-detection" content="telephone=no">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Helvetica";
+      background-color: #090910;
+    }
+
+    .pad {
+      width: 700px;
+      height: 570px;
+      margin: 100px auto;
+      position: relative;
+    }
+
+    .pad #play-btn {
+      position: absolute;
+      top: 70px;
+      right: 50px;
+      padding: 0;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .pad #stop-btn {
+      position: absolute;
+      top: 140px;
+      right: 50px;
+      padding: 0;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .cell-container {
+      width: 360px;
+      height: 360px;
+      left: 105px;
+      top: 100px;
+      position: absolute;
+    }
+
+    .cell {
+      width: 100px;
+      height: 100px;
+      color: #4A4A4A;
+      font-size: 16px;
+      float: left;
+      margin: 10px;
+      text-align: center;
+      border-radius: 4px;
+    }
+
+    .cell .key {
+      border: 2px solid #4A4A4A;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      margin: 8px auto;
+      line-height: 40px;
+      font-weight: 500;
+    }
+
+    .cell .instrument {
+      width: 80px;
+      white-space: nowrap;
+      margin: 0 auto;
+      font-weight: 500;
+    }
+
+    .cell.green {
+      background-color: #87E682;
+    }
+
+    .cell.blue {
+      background-color: #2DBAF2;
+    }
+
+    .cell.red {
+      background-color: #FB718C;
+    }
+
+    .cell.green.playing {
+      background-color: rgba(135, 230, 130, 0.2);
+      color: #87E682;
+      border: 2px solid #87E682;
+    }
+
+    .cell.green.playing .key {
+      border: 2px solid #87E682;
+    }
+
+    .cell.blue.playing {
+      background-color: rgba(45, 186, 242, 0.2);
+      color: #2DBAF2;
+      border: 2px solid #2DBAF2;
+    }
+
+    .cell.blue.playing .key {
+      border: 2px solid #2DBAF2;
+    }
+
+    .cell.red.playing {
+      background-color: rgba(251, 113, 140, 0.2);
+      color: #FB718C;
+      border: 2px solid #FB718C;
+    }
+
+    .cell.red.playing .key {
+      border: 2px solid #FB718C;
+    }
+
+    .playing {
+      transform: scale(1.1);
+      border-color: #ffc600;
+      box-shadow: 0 0 1rem #ffc600;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="pad">
+    <img src="images/CD05.1/pad.png" width="700" height="570">
+    <button id="play-btn">
+        <img src="images/CD05.1/play.png" width="50" height="50">
+      </button>
+    <button id="stop-btn">
+        <img src="images/CD05.1/stop.png" width="50" height="50">
+      </button>
+
+    <div class="cell-container">
+      <div class="cell green" id="cell1" data-key="49" data-keynum="97">
+        <div class="key">1</div>
+        <div class="instrument">Kick</div>
+      </div>
+
+      <div class="cell blue" id="cell2" data-key="50" data-keynum="98">
+        <div class="key">2</div>
+        <div class="instrument">Closed<br>Hi-hat</div>
+      </div>
+
+      <div class="cell blue" id="cell3" data-key="51" data-keynum="99">
+        <div class="key">3</div>
+        <div class="instrument">Open<br>Hi-hat</div>
+      </div>
+
+      <div class="cell red" id="cell4" data-key="52" data-keynum="100">
+        <div class="key">4</div>
+        <div class="instrument">Clap</div>
+      </div>
+
+      <div class="cell red" id="cell5" data-key="53" data-keynum="101">
+        <div class="key">5</div>
+        <div class="instrument">Snap</div>
+      </div>
+
+      <div class="cell blue" id="cell6" data-key="54" data-keynum="102">
+        <div class="key">6</div>
+        <div class="instrument">Crash</div>
+      </div>
+
+      <div class="cell green" id="cell7" data-key="55" data-keynum="103">
+        <div class="key">7</div>
+        <div class="instrument">Tom 1</div>
+      </div>
+
+      <div class="cell green" id="cell8" data-key="56" data-keynum="104">
+        <div class="key">8</div>
+        <div class="instrument">Tom 2</div>
+      </div>
+
+      <div class="cell blue" id="cell9" data-key="57" data-keynum="105">
+        <div class="key">9</div>
+        <div class="instrument">Tambourine</div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script>
+    function playSound(e) {
+      if ((e.keyCode) >= 97 && (e.keyCode) <= 105) {
+        const keys = document.querySelector(`.cell[data-keynum="${e.keyCode}"]`);
+        keys.classList.add('playing');
+      } else if ((e.keyCode) >= 49 && (e.keyCode) <= 57) {
+        const key = document.querySelector(`.cell[data-key="${e.keyCode}"]`);
+        key.classList.add('playing');
+      }
+    }
+
+    window.addEventListener('keydown', playSound);
+
+    $(document).on('keyup', function() {
+      $('.cell').removeClass('playing');
+    });
+  </script>
+</body>
+
+</html>

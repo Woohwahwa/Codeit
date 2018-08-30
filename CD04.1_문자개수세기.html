@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta name="google-site-verification" content="zDZ_HB9ARSJg3fYqwF63M1MhWHagV4N33_UpG2bXZKU" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="format-detection" content="telephone=no">
+  <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+  <title>문자개수세기</title>
+</head>
+
+<body>
+
+
+  <script src="jquery-3.3.1.min.js"></script>
+
+  <script>
+    // 주어진 단어(word)에 특정 알파벳(ch)이 몇 번 들어가는지 세어주는 함수
+    function countCharacter(word, ch) {
+      let count = 0;
+      let re = new RegExp(ch, 'g')
+
+      // 코드를 작성해주세요.
+      let words = word.toUpperCase();
+      count = words.match(re);
+      if (count != null) {
+        return count.length;
+      } else {
+        return 0
+      }
+
+      return count
+    }
+
+    // 단어 word에 알파벳 'A'가 몇 번 나오는지 세어주는 함수
+    function countA(word) {
+      var countA = 0;
+      let re = new RegExp('A', 'g')
+      let words = word.toUpperCase();
+      countA = words.match(re);
+
+      if (countA != null) {
+        return countA.length;
+      } else {
+        return 0
+      }
+
+      return countA;
+    }
+
+    console.log(countCharacter('AbaCedEA', 'E'));
+    console.log(countCharacter('AbaCedEA', 'X'));
+    console.log(countA('AbaCedEA'));
+  </script>
+</body>
+
+</html>
